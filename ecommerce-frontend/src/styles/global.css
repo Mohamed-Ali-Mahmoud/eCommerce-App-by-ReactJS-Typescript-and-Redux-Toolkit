@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+.active {
+  @apply font-bold text-cyan-400;
+}
+
+@utility container {
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+@utility container {
+  padding-inline: 1rem;
+  margin-inline: auto;
+
+  @variant sm {
+    padding-inline: 2rem;
+  }
+  @variant lg {
+    padding-inline: 4rem;
+  }
+
+  @variant xl {
+    padding-inline: 5rem;
+  }
+
+  @variant 2xl {
+    padding-inline: 6rem;
+  }
+}
