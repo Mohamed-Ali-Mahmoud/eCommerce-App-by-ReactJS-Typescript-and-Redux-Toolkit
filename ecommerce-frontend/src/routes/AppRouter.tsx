@@ -8,7 +8,7 @@ import Products from "@pages/Products";
 import AboutUs from "@pages/AboutUs";
 import Login from "@pages/Login";
 import Register from "@pages/Register";
-import Erorr from "@pages/Erorr";
+import Error from "@pages/Error";
 
 // Route imports
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    errorElement: <Erorr />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
