@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         // if the prefix param is not alphabetic and not a string, throw a 400 error
-        path: "product/:prefix",
+        path: "categories/products/:prefix",
         element: <Products />,
         // loader is invoked before the element is rendered and can be used to validate params
         loader: ({ params }) => {

@@ -1,16 +1,18 @@
-import React from "react";
+// import product types
+import type { TProduct } from "@customTypes/product";
 
-const Product = () => {
+const Product = ({ title, price, img }: TProduct) => {
   return (
-    <div className="container mx-auto mt-10 flex justify-center items-center flex-col">
+    <div className="container mx-auto mt-10 flex justify-center items-center flex-col mb-5">
+      <div className="w-1"></div>
       <img
-        src="https://www.mytheresa.com/media/1094/1238/100/ef/P00956935.jpg"
-        alt="Sample Product"
-        className="w-full rounded-2xl shadow-md  object-cover"
+        src={img}
+        alt={title}
+        className="w-[200px] h-[200px] rounded-2xl shadow-md object-cover"
       />
       <div className="self-start">
-        <h4 className="text-2xl font-bold mt-4">Titlte</h4>
-        <p className="text-gray-700 mt-2">$29.99</p>
+        <h4 className="text-2xl font-bold mt-4 truncate">{title}</h4>
+        <p className="text-gray-700 mt-2">{price} EGP</p>
       </div>
       <button className="w-full mt-4 bg-cyan-400 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition duration-300 cursor-pointer">
         Add to Cart
