@@ -18,16 +18,18 @@ const Categories = () => {
 
   // use useEffect to dispatch actGetCategories when the component mounts
   useEffect(() => {
-    //
+    // dispatch actGetCategories only if records is empty
+    // to avoid multiple requests.
     if (records.length === 0) {
       dispatch(actGetCategories());
     }
   }, [dispatch]);
 
   // get categories list
-  const categoriesList = records
-    ? records.map((record) => <Category key={record.id} {...record} />)
-    : "No Categories Available";
+  const categoriesList =
+    records.length > 0
+      ? records.map((record) => <Category key={record.id} {...record} />)
+      : "No Categories Available";
 
   return (
     <div className="grid grid-cols-5 gap-4 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-5">
