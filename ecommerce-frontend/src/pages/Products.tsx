@@ -15,6 +15,9 @@ import { useAppDispatch, useAppSelector } from "@store/hooks";
 // import Product component (product page)
 import Product from "@components/Product/Product";
 
+// import GridList component
+import GridList from "@components/common/GridList/GridList";
+import Loading from "@components/feedback/Loading";
 const Products = () => {
   // get the category prefix from the url
   const params = useParams();
@@ -35,15 +38,24 @@ const Products = () => {
   }, [dispatch, params]); // dependency array
 
   // get the products list
-  const productsList =
-    records.length > 0
-      ? records.map((record) => <Product key={record.id} {...record} />)
-      : "No Products Found";
+  // const productsList =
+  //   records.length > 0
+  //     ? records.map((record) => <Product key={record.id} {...record} />)
+  //     : "No Products Found";
 
   return (
-    <div className="grid grid-cols-4 gap-20  max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-5">
-      {productsList}
-    </div>
+    // <div className="grid grid-cols-4 gap-20  max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-5">
+    //   {productsList}
+    // </div>
+
+    <Loading loading={loading} error={error}>
+      <div className="grid grid-cols-4 gap-20  max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-5">
+        <GridList
+          records={records}
+          renderItem={(record) => <Product {...record} />}
+        />
+      </div>
+    </Loading>
   );
 };
 
